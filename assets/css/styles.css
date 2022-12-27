@@ -1,0 +1,18 @@
+body {
+    padding: 3rem;
+}
+#example input {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 3px 10px;
+    appearance: none;
+}
+#example input:focus {
+    outline: none;
+}
+#results {
+    position: relative;
+    width: 100%;
+}
