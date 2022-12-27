@@ -1,6 +1,6 @@
-let arr1 = ["the", "our", "my", "your"];
-let arr2 = [];
-let arr3 = [];
+let articles = ["the", "our", "my", "your"];
+let keywords1 = [];
+let keywords2 = [];
 let extensions = [
   "aero",
   "biz",
@@ -270,13 +270,21 @@ let extensions = [
 ];
 
 function showDomains() {
-  arr2.push(document.getElementById("keywords1").value);
-  console.log(arr2);
-  for (let i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr2.length; j++) {
-      for (let k = 0; k < arr3.length; k++) {
+  keywords1.push(document.getElementById("keywords1").value);
+  keywords2.push(document.getElementById("keywords2").value);
+  const results = document.getElementById("results");
+
+  const ul = document.createElement("ul");
+  ul.innerHTML = `<ul class="domains"></ul>`;
+
+  console.log(keywords2);
+  for (let i = 0; i < articles.length; i++) {
+    for (let j = 0; j < keywords1.length; j++) {
+      for (let k = 0; k < keywords2.length; k++) {
         for (let l = 0; l < extensions.length; l++) {
-          console.log(`www.${arr1[i]}${arr2[j]}${arr3[k]}.${extensions[l]}`);
+          const li = document.createElement("li");
+          li.innerHTML = `<li class="domain-name">www.${articles[i]}${keywords1[j]}${keywords2[k]}.${extensions[l]}</li>`;
+          results.appendChild(li);
         }
       }
     }

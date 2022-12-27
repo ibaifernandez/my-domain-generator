@@ -1,18 +1,15 @@
 body {
     padding: 3rem;
 }
-#example input {
-    box-sizing: border-box;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    padding: 3px 10px;
-    appearance: none;
+
+.domains {
+    list-style: none;
 }
-#example input:focus {
-    outline: none;
+
+.domain-name {
+    list-style-type: none;
 }
+
 #results {
-    position: relative;
-    width: 100%;
+    column-count: 3;
 }
