@@ -36,17 +36,33 @@
 
 </head>
     <body>
-        <div class="container-fluid">
-            <h1 class="h1">Domain Generator</h1>
-            <p class="display-5">Running dry of ideas on which domain name you should choose? Let me make your life easier with this domain generator!</p>
+        <div class="container-container mx-auto">
+    
+            <h1 class="h1 text-center">Domain Generator</h1>
+            <p class="display-6 text-center">Running dry of ideas on which domain name you should choose? Let me make your life easier with this domain generator!</p>
 
-            <form id="domain-search-form">
-                <input type="text" id="keywords1" name="search-keywords-1" placeholder="Keywords 1" autocomplete="off" autofocus autocapitalize="off" autocorrect="off" />
-                <input type="text" id="keywords2" name="search-keywords-2" placeholder="Keywords 2" autocomplete="off" autofocus autocapitalize="off" autocorrect="off" />
-                <input type="submit" onclick="showDomains(); return false;">
+            <form id="domain-search-form" class="w-lg-50 wg-sm-100 mx-auto mt-5">
+                <label for="keywords">Please, describe your business with a comma-separated list of keywords.</label>
+                <input type="text" id="keywords" name="search-keywords" placeholder="Please, describe your business with a comma-separated list of keywords" autocomplete="off" autofocus autocapitalize="off" autocorrect="off" required />
+                <small class="d-flex justify-content-end mb-3 text-danger">Required field</small>
+                
+                <label for="keywords">Please, describe the category or categories which your business belongs to. Use a comma-separated list of category keywords.*</label>
+                <input type="text" id="categories" name="search-category" placeholder="How would you best describe the category of your business?" autocomplete="off" autofocus autocapitalize="off" autocorrect="off" required/>
+                <small class="d-flex justify-content-end mb-3 text-danger">Required field</small>
+
+                <label for="keywords">Please, list the domain extensions you're interested in as a comma-separated list of keywords. <strong>DO NOT</strong> include the dot <code>[.]</code>. Leave it empty to use our default extensions.</label>
+                <input type="text" id="userExtensions" name="search-extensions" placeholder="Do you already know which domain extensions you're interested in?" autocomplete="off" autofocus autocapitalize="off" autocorrect="off" />
+                
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-primary" value="Submit" onclick="showDomains(); return false;">
+                </div>
+    
             </form>
             
             <div id="results"></div>
+
+            <footer class="text-center text-muted mt-5">Ibai Fernández © All Rights Reserved · 2022</footer>
+    
         </div>
 
         <script src="/assets/js/app.js"></script>

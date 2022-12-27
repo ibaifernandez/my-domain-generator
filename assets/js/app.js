@@ -1,6 +1,7 @@
 let articles = ["the", "our", "my", "your"];
-let keywords1 = [];
-let keywords2 = [];
+let keywords = [];
+let categories = [];
+let userExtensions = [];
 let extensions = [
   "aero",
   "biz",
@@ -270,21 +271,38 @@ let extensions = [
 ];
 
 function showDomains() {
-  keywords1.push(document.getElementById("keywords1").value);
-  keywords2.push(document.getElementById("keywords2").value);
+  keywords.push(document.getElementById("keywords").value);
+  categories.push(document.getElementById("categories").value);
+  userExtensions.push(document.getElementById("userExtensions").value);
+  console.log(userExtensions);
   const results = document.getElementById("results");
 
   const ul = document.createElement("ul");
-  ul.innerHTML = `<ul class="domains"></ul>`;
+  ul.setAttribute("id", "domainsList");
+  ul.classList.add("domains");
+  results.appendChild(ul);
 
-  console.log(keywords2);
-  for (let i = 0; i < articles.length; i++) {
-    for (let j = 0; j < keywords1.length; j++) {
-      for (let k = 0; k < keywords2.length; k++) {
-        for (let l = 0; l < extensions.length; l++) {
-          const li = document.createElement("li");
-          li.innerHTML = `<li class="domain-name">www.${articles[i]}${keywords1[j]}${keywords2[k]}.${extensions[l]}</li>`;
-          results.appendChild(li);
+  if (userExtensions[0] === "") {
+    for (let i = 0; i < articles.length; i++) {
+      for (let j = 0; j < keywords.length; j++) {
+        for (let k = 0; k < categories.length; k++) {
+          for (let l = 0; l < extensions.length; l++) {
+            const li = document.createElement("li");
+            li.innerHTML = `${articles[i]}${keywords[j]}${categories[k]}.${extensions[l]}`;
+            ul.appendChild(li);
+          }
+        }
+      }
+    }
+  } else {
+    for (let i = 0; i < articles.length; i++) {
+      for (let j = 0; j < keywords.length; j++) {
+        for (let k = 0; k < categories.length; k++) {
+          for (let l = 0; l < userExtensions.length; l++) {
+            const li = document.createElement("li");
+            li.innerHTML = `<li class="domain-name">www.${articles[i]}${keywords[j]}${categories[k]}.${userExtensions[l]}</li>`;
+            domainList.appendChild(li);
+          }
         }
       }
     }
