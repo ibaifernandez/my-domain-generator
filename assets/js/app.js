@@ -269,6 +269,46 @@ let extensions = [
   "zr",
   "zw",
 ];
+let spanishOn = false;
+
+function changeLanguage() {
+  spanishOn = true;
+
+  let englishButton = document.getElementById("english-button");
+  englishButton.classList.remove("invisible");
+  englishButton.classList.add("visible");
+
+  let spanishButton = document.getElementById("spanish-button");
+  spanishButton.classList.remove("visible");
+  spanishButton.classList.remove("position-absolute");
+  spanishButton.classList.add("invisible");
+
+  let mainTitle = document.getElementById("main-title");
+  let mainTitleContent = document.getElementById("main-title").innerText;
+  mainTitleContent = "Generador de dominios";
+  mainTitle.innerHTML = mainTitleContent;
+
+  let introduction = document.getElementById("introduction");
+  let introductionContent = document.getElementById("introduction").innerText;
+  introductionContent =
+    "¿Se te acabaron las ideas sobre qué nombre de dominio elegir? ¡Déjame hacer tu vida más fácil con este generador de nombres de dominio!";
+  introduction.innerHTML = introductionContent;
+
+  let legend1 = document.getElementById("legend-1");
+  let legend1Content = document.getElementById("legend-1").innerText;
+  legend1Content = `1. ¿Te gustaría que algunos artículos <span class="text-secondary">(my, our, your, the...)</span> fueren añadidos a tus ideas de nombres de dominio?`;
+  legend1.innerHTML = legend1Content;
+
+  let yesLegend = document.getElementById("yes-legend");
+  let yesLegendContent = document.getElementById("yes-legend").innerText;
+  yesLegendContent = `Sí`;
+  yesLegend.innerHTML = yesLegendContent;
+
+  let educative1 = document.getElementById("educative-1");
+  let educative1Content = document.getElementById("educative-1").innerText;
+  educative1Content = `La importancia de elegir el nombre de dominio apropiado`;
+  educative1.innerHTML = educative1Content;
+}
 
 function showDomains() {
   let useOfArticles = document.querySelector(
@@ -277,7 +317,11 @@ function showDomains() {
 
   keywords = document.getElementById("keywords").value;
   if (keywords === "") {
-    alert("The field 'keywords' is required.");
+    if (!spanishOn) {
+      alert("The field 'keywords' is required.");
+    } else {
+      alert("El campo 'keywords' es obligatorio.");
+    }
   } else {
     let keywordsArr = keywords.split(", ");
 
@@ -288,6 +332,8 @@ function showDomains() {
     let userExtensionsArr = userExtensions.split(", ");
 
     const results = document.getElementById("results");
+    const resultsTitle = document.getElementById("results-title");
+    const appreciation = document.getElementById("appreciation");
 
     const ul = document.createElement("ul");
     ul.setAttribute("id", "domainsList");
@@ -360,12 +406,25 @@ function showDomains() {
       }
     }
 
-    let resultsTitle = document.getElementById("results-title");
-    resultsTitle.classList.remove("unvisible");
-    resultsTitle.classList.add("visible");
+    const resultsTitleContent = document.createElement("h2");
+    resultsTitleContent.classList.add("h2");
+    resultsTitleContent.classList.add("text-center");
+    resultsTitleContent.classList.add("mt-5");
+    resultsTitleContent.classList.add("fw-bold");
+    resultsTitleContent.innerText = "Here are your results 👇🏼";
+    resultsTitle.appendChild(resultsTitleContent);
 
-    let appreciation = document.getElementById("appreciation");
-    appreciation.classList.remove("unvisible");
-    appreciation.classList.add("visible");
+    const appreciationContent = document.createElement("p");
+    appreciationContent.classList.add("p");
+    appreciationContent.classList.add("text-center");
+    appreciationContent.classList.add("display-6");
+    appreciationContent.classList.add("mb-5");
+    appreciationContent.innerHTML =
+      'If you\'ve liked the ride, please, show some appreciation by letting me know it thru <a href="https://twitter.com/intent/tweet?text=This%20is%20me%20showing%20some%20appreciation%20to%20@ibaifernandezec😂%20Have%20a%20look%20at%20his%20work%20at%20&url=http%3A%2F%2Fportfolio.ibaifernandez.com%2F&hashtags=100DaysOfCode,HTML,CSS,JavaScript" target="_blank">a tweet</a>.';
+    appreciation.appendChild(appreciationContent);
   }
+}
+
+function reboot() {
+  location.reload();
 }

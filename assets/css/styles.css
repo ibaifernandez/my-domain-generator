@@ -20,21 +20,11 @@ input[type="text"] {
     margin: 3rem 0;
 }
 
-.unvisible {
-    display:none;
-}
-
-.visible {
-    display:block;
-}
-
 @media (max-width:900px) {
     #results {
         column-count: 2;
         column-gap: 2rem;    
     }
-   
-
 }
 
 @media (max-width:600px) {
