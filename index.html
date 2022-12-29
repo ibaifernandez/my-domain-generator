@@ -38,30 +38,65 @@
     <body>
         <div class="container-container mx-auto">
     
-            <h1 class="h1 text-center">Domain Generator</h1>
-            <p class="display-6 text-center">Running dry of ideas on which domain name you should choose? Let me make your life easier with this domain generator!</p>
+            <h1 class="h1 text-center mb-3 border-bottom">Domain Generator</h1>
+            <p class="display-6 text-center">Running dry of ideas on which domain name you should choose? Let me make your life easier with this domain names generator!</p>
 
             <form id="domain-search-form" class="w-lg-50 wg-sm-100 mx-auto mt-5">
-                <label for="keywords">Please, describe your business with a comma-separated list of keywords.</label>
-                <input type="text" id="keywords" name="search-keywords" placeholder="Please, describe your business with a comma-separated list of keywords" autocomplete="off" autofocus autocapitalize="off" autocorrect="off" required />
-                <small class="d-flex justify-content-end mb-3 text-danger">Required field</small>
-                
-                <label for="keywords">Please, describe the category or categories which your business belongs to. Use a comma-separated list of category keywords.*</label>
-                <input type="text" id="categories" name="search-category" placeholder="How would you best describe the category of your business?" autocomplete="off" autofocus autocapitalize="off" autocorrect="off" required/>
-                <small class="d-flex justify-content-end mb-3 text-danger">Required field</small>
+            
+                <fieldset id="useOfArticles-fieldset" class="p-lg-3 d-flex flex-column justify-content-center">
+                    <legend class="w-auto fs-6 fw-bold">1. Would you like to see some articles <span class="text-secondary">(my, our, your, the...)</span> added to your domain ideas?</legend>
+                        <div class="form-check-inline mt-3">
+                            <input id="yes" class="form-check-input form-check-inline" type="radio" name="useOfArticles" value="yes" checked/>
+                            <label class="form-check-label" for="yes">Yes</label>
+                        </div>
+                        <div class="form-check-inline mt-4">
+                            <input id="no" class="form-check-input form-check-inline" type="radio" name="useOfArticles" value="no"/>
+                            <label class="form-check-label" for="no">No</label>
+                        </div>
+                </fieldset>
 
-                <label for="keywords">Please, list the domain extensions you're interested in as a comma-separated list of keywords. <strong>DO NOT</strong> include the dot <code>[.]</code>. Leave it empty to use our default extensions.</label>
-                <input type="text" id="userExtensions" name="search-extensions" placeholder="Do you already know which domain extensions you're interested in?" autocomplete="off" autofocus autocapitalize="off" autocorrect="off" />
+                <fieldset id="keywords-fieldset">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                <details class="text-md-left mb-sm-3 mb-lg-4 text-secondary">
+                                <summary id="educative-1" class="display-6 fs-4 mt-sm-6 mt-lg-3">The importance of choosing the right domain name</summary>
+                                <p class="lead mt-3 pe-5">Deciding and registering a domain name should not be done in haste. It is a valuable marketing and search tool that should successfully lead customers to your site. Careful deliberation and research should be applied, as it might be the most important decision you make when carving out your slice of the online market.</p>
+                                </details>
+                            </div>
+                        
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
+                                <details class="text-md-left mb-sm-3 mb-lg-4 text-secondary">
+                                <summary class="display-6 fs-4 mt-sm-6 mt-lg-3">The importance of choosing the right domain name</summary>
+                                <p class="lead mt-3 pe-5">Deciding and registering a domain name should not be done in haste. It is a valuable marketing and search tool that should successfully lead customers to your site. Careful deliberation and research should be applied, as it might be the most important decision you make when carving out your slice of the online market.</p>
+                                </details>
+                            </div>
+
+                        </div>
+
+                    <label for="keywords" class="fw-bold fs-6 mt-4">2. Please, describe your business with a comma-separated list of keywords. Don't forget to include one space after each comma. Example: <span class="text-secondary">a, comma-separated, list</span>. Also, remember that the only possible symbol accepted within any given domain name is the dash [<code class="bg-light">-</code>].</label>
+                    <small class="d-flex justify-content-end mb-3 text-danger3">Required field</small>
+                    <input class="w-100 rounded" type="text" id="keywords" name="search-keywords" placeholder="Please, describe your business with a comma-separated list of keywords." autocomplete="off" autocapitalize="off" required />
+
+                    <label for="keywords" class="fw-bold fs-6 mt-5">3. Please, describe the category or categories which your business belongs to. Use a comma-separated list of category keywords to do so. Don't forget to include one space after each comma. Example: <span class="text-secondary">a, comma-separated, list</span>. Also, remember that the only possible symbol accepted within any given domain name is the dash [<code class="bg-light">-</code>].</label>
+                    <input class="w-100 rounded mt-4" type="text" id="categories" name="search-category" placeholder="How would you best describe the category of your business?" autocomplete="off" autocapitalize="off" required/>
+
+                    <label for="keywords" class="fw-bold fs-6 mt-5">4. Please, list the domain extensions you're interested in as a comma-separated list of keywords. <strong>DO NOT</strong> include the dot <code>[.]</code>. Leave it empty to use our default extensions. Don't forget to include one space after each comma. Example: <span class="text-secondary">a, comma-separated, list</span>.</label>
+                    <input class="w-100 rounded mt-4" type="text" id="userExtensions" name="search-extensions" placeholder="Do you already know which domain extensions you're interested in?" autocomplete="off" autocapitalize="off" />
+                </fieldset>                
                 
                 <div class="d-flex justify-content-center">
-                    <input type="submit" class="btn btn-primary" value="Submit" onclick="showDomains(); return false;">
+                    <input type="submit" class="btn btn-outline-primary mt-5" value="Submit" onclick="showDomains(); return false;">
                 </div>
     
             </form>
             
+            <div id="results-title" class="unvisible h2 text-center mt-5">Here are your results:</div>
             <div id="results"></div>
+            <div id="appreciation" class="unvisible mb-5">
+                <p class="p text-center display-6 mb-3">If you've liked the ride, please, show some appreciation by letting me know it thru <a href="https://twitter.com/intent/tweet?text=This%20is%20me%20showing%20some%20appreciation%20to%20@ibaifernandezec😂%20Have%20a%20look%20at%20his%20work%20at%20&url=http%3A%2F%2Fportfolio.ibaifernandez.com%2F&hashtags=100DaysOfCode,HTML,CSS,JavaScript" target="_blank">a tweet</a>.</p>
+            </div>
 
-            <footer class="text-center text-muted mt-5">Ibai Fernández © All Rights Reserved · 2022</footer>
+            <footer class="text-center text-muted mt-3"><a href="https://portfolio.ibaifernandez.com" target="_blank"</a>Ibai Fernández</a> © All Rights Reserved · 2022</footer>
     
         </div>
 

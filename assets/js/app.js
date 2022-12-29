@@ -1,7 +1,7 @@
 let articles = ["the", "our", "my", "your"];
-let keywords = [];
-let categories = [];
-let userExtensions = [];
+let keywords = "";
+let categories = "";
+let userExtensions = "";
 let extensions = [
   "aero",
   "biz",
@@ -271,40 +271,101 @@ let extensions = [
 ];
 
 function showDomains() {
-  keywords.push(document.getElementById("keywords").value);
-  categories.push(document.getElementById("categories").value);
-  userExtensions.push(document.getElementById("userExtensions").value);
-  console.log(userExtensions);
-  const results = document.getElementById("results");
+  let useOfArticles = document.querySelector(
+    'input[name="useOfArticles"]:checked'
+  ).value;
 
-  const ul = document.createElement("ul");
-  ul.setAttribute("id", "domainsList");
-  ul.classList.add("domains");
-  results.appendChild(ul);
+  keywords = document.getElementById("keywords").value;
+  if (keywords === "") {
+    alert("The field 'keywords' is required.");
+  } else {
+    let keywordsArr = keywords.split(", ");
 
-  if (userExtensions[0] === "") {
-    for (let i = 0; i < articles.length; i++) {
-      for (let j = 0; j < keywords.length; j++) {
-        for (let k = 0; k < categories.length; k++) {
+    categories = document.getElementById("categories").value;
+    let categoriesArr = categories.split(", ");
+
+    userExtensions = document.getElementById("userExtensions").value;
+    let userExtensionsArr = userExtensions.split(", ");
+
+    const results = document.getElementById("results");
+
+    const ul = document.createElement("ul");
+    ul.setAttribute("id", "domainsList");
+    ul.classList.add("domains");
+    results.appendChild(ul);
+
+    function useArticlesWithExtensions() {
+      for (let i = 0; i < articles.length; i++) {
+        for (let j = 0; j < keywordsArr.length; j++) {
+          for (let k = 0; k < categoriesArr.length; k++) {
+            for (let l = 0; l < extensions.length; l++) {
+              const li = document.createElement("li");
+              li.innerHTML = `<a class="domainName" href="https://${keywordsArr[j]}${categoriesArr[k]}.${extensions[l]}">${keywordsArr[j]}${categoriesArr[k]}.${extensions[l]}</a>`;
+              domainsList.appendChild(li);
+            }
+          }
+        }
+      }
+    }
+
+    function dontUseArticlesWithExtensions() {
+      for (let j = 0; j < keywordsArr.length; j++) {
+        for (let k = 0; k < categoriesArr.length; k++) {
           for (let l = 0; l < extensions.length; l++) {
             const li = document.createElement("li");
-            li.innerHTML = `${articles[i]}${keywords[j]}${categories[k]}.${extensions[l]}`;
-            ul.appendChild(li);
+            li.innerHTML = `<a href="https://${keywordsArr[j]}${categoriesArr[k]}.${extensions[l]}">${keywordsArr[j]}${categoriesArr[k]}.${extensions[l]}</a>`;
+            domainsList.appendChild(li);
           }
         }
       }
     }
-  } else {
-    for (let i = 0; i < articles.length; i++) {
-      for (let j = 0; j < keywords.length; j++) {
-        for (let k = 0; k < categories.length; k++) {
-          for (let l = 0; l < userExtensions.length; l++) {
+
+    function useArticlesWithUserExtensions() {
+      for (let i = 0; i < articles.length; i++) {
+        for (let j = 0; j < keywordsArr.length; j++) {
+          for (let k = 0; k < categoriesArr.length; k++) {
+            for (let l = 0; l < userExtensionsArr.length; l++) {
+              const li = document.createElement("li");
+              li.innerHTML = `<a href="https://${articles[i]}${keywordsArr[j]}${categoriesArr[k]}.${userExtensionsArr[l]}">${articles[i]}${keywordsArr[j]}${categoriesArr[k]}.${userExtensionsArr[l]}</a>`;
+              domainsList.appendChild(li);
+            }
+          }
+        }
+      }
+    }
+
+    function dontUseArticlesWithUserExtensions() {
+      for (let j = 0; j < keywordsArr.length; j++) {
+        for (let k = 0; k < categoriesArr.length; k++) {
+          for (let l = 0; l < userExtensionsArr.length; l++) {
             const li = document.createElement("li");
-            li.innerHTML = `<li class="domain-name">www.${articles[i]}${keywords[j]}${categories[k]}.${userExtensions[l]}</li>`;
-            domainList.appendChild(li);
+            li.innerHTML = `<a href="https://${keywordsArr[j]}${categoriesArr[k]}.${userExtensionsArr[l]}">${keywordsArr[j]}${categoriesArr[k]}.${userExtensionsArr[l]}</a>`;
+            domainsList.appendChild(li);
           }
         }
       }
     }
+
+    if (useOfArticles === "yes") {
+      if (userExtensionsArr[0] === "") {
+        useArticlesWithExtensions();
+      } else {
+        useArticlesWithUserExtensions();
+      }
+    } else {
+      if (userExtensionsArr[0] === "") {
+        dontUseArticlesWithExtensions();
+      } else {
+        dontUseArticlesWithUserExtensions();
+      }
+    }
+
+    let resultsTitle = document.getElementById("results-title");
+    resultsTitle.classList.remove("unvisible");
+    resultsTitle.classList.add("visible");
+
+    let appreciation = document.getElementById("appreciation");
+    appreciation.classList.remove("unvisible");
+    appreciation.classList.add("visible");
   }
 }
