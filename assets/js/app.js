@@ -283,31 +283,63 @@ function changeLanguage() {
   spanishButton.classList.remove("position-absolute");
   spanishButton.classList.add("invisible");
 
-  let mainTitle = document.getElementById("main-title");
-  let mainTitleContent = document.getElementById("main-title").innerText;
-  mainTitleContent = "Generador de dominios";
-  mainTitle.innerHTML = mainTitleContent;
-
-  let introduction = document.getElementById("introduction");
-  let introductionContent = document.getElementById("introduction").innerText;
-  introductionContent =
+  document.getElementById("main-title").innerText = "Generador de dominios";
+  document.getElementById("introduction").innerText =
     "¿Se te acabaron las ideas sobre qué nombre de dominio elegir? ¡Déjame hacer tu vida más fácil con este generador de nombres de dominio!";
-  introduction.innerHTML = introductionContent;
 
-  let legend1 = document.getElementById("legend-1");
-  let legend1Content = document.getElementById("legend-1").innerText;
-  legend1Content = `1. ¿Te gustaría que algunos artículos <span class="text-secondary">(my, our, your, the...)</span> fueren añadidos a tus ideas de nombres de dominio?`;
-  legend1.innerHTML = legend1Content;
+  document.getElementById(
+    "legend-1"
+  ).innerHTML = `1. ¿Te gustaría que algunos artículos <span class="text-secondary">(my, our, your, the...)</span> fueren añadidos a tus ideas de nombres de dominio?`;
 
-  let yesLegend = document.getElementById("yes-legend");
-  let yesLegendContent = document.getElementById("yes-legend").innerText;
-  yesLegendContent = `Sí`;
-  yesLegend.innerHTML = yesLegendContent;
+  document.getElementById("yes-legend").innerText = "Sí";
 
-  let educative1 = document.getElementById("educative-1");
-  let educative1Content = document.getElementById("educative-1").innerText;
-  educative1Content = `La importancia de elegir el nombre de dominio apropiado`;
-  educative1.innerHTML = educative1Content;
+  document.getElementById(
+    "educative-1-title"
+  ).innerText = `La importancia de elegir el nombre de dominio apropiado`;
+
+  document.getElementById(
+    "educative-1-content"
+  ).innerText = `Decidir y registrar un nombre de dominio es algo que no debiere ser hecho al apuro. Es una herramienta de marketing valiosísima que, elegida con el debido rigor, habría de conducir a los potenciales clientes a nuestro sitio con el mayor de los éxitos. Una cuidadosa deliberación —e incluso investigación— debería ser llevada a cabo a la hora de elegir el mejor nombre de dominio posible.`;
+
+  document.getElementById(
+    "educative-2-title"
+  ).innerText = `Tan corto como te sea posible`;
+
+  document.getElementById(
+    "educative-2-content"
+  ).innerText = `Los nombres de dominio deberían ser tan cortos como nos fuere posible elegirlos para mejorar la pregnancia —esto es, la facilidad de ser recordados— por parte del usuario.`;
+
+  document.getElementById(
+    "legend-2"
+  ).innerHTML = `2. Por favor, describe tu negocio con una lista de palabras clave separada por comas. No olvides incluir un espacio después de cada coma. Ejemplo: una, lista, separada, por, comas. Igualmente, por favor, recuerda que el único símbolo aceptado en lo que a nombres de dominio se refiere es el guión <code>[-]</code>.`;
+
+  document.getElementById("small-1").innerText = `Campo obligatorio`;
+
+  document.getElementById(
+    "keywords"
+  ).placeholder = `Por favor, describe tu negocio con una lista de palabras clave separada por comas.`;
+
+  document.getElementById(
+    "categories"
+  ).placeholder = `¿En qué categorías encaja mejor tu negocio?`;
+
+  document.getElementById(
+    "userExtensions"
+  ).placeholder = `¿Sabes ya qué extensiones de dominio te interesan?`;
+
+  document.getElementById(
+    "legend-3"
+  ).innerHTML = `3. Por favor, describe la categoría o categorías a las que pertenece tu negocio. Utiliza una lista de palabras clave separada por comas para hacerlo. No olvides incluir un espacio después de cada coma. Ejemplo: <span class="text-secondary">una, lista, separada, por, comas</span>. Además, recuerda que el único símbolo posible aceptado dentro de cualquier nombre de dominio dado es el guión [<code>-</code>].`;
+
+  document.getElementById(
+    "legend-4"
+  ).innerHTML = `4. POr favor, lista las extensiones de dominio en las cuales tienes interés. Hazlo en forma de lista separada por comas. NO INCLUYAS el punto [.]. Deja este campo vacío para utilizar las extensiones de dominio por defecto. No te olvides de incluir un espacio tras cada coma. Ejemplo: <span class="text-secondary">una, lista, separada, por, comas</span>.`;
+
+  document.getElementById("submit-button").value = `Enviar`;
+
+  document.getElementById(
+    "footer"
+  ).innerHTML = `<a href="https://ibaifernandez.com" target="_blank">Ibai Fernández</a> © Todos los derechos reservados · 2022`;
 }
 
 function showDomains() {

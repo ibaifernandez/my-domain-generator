@@ -35,8 +35,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
 
 </head>
-    <body>
-        <div class="container-container mx-auto">
+    <body class="mx-auto">
+        <div class="container-container mx-auto my-0">
             <header>
                 <nav class="d-flex justify-content-center justify-content-sm-center justify-content-md-end  mb-4 mb-md-2">
                     <button id="spanish-button" class="btn btn-outline-primary visible position-absolute" onclick="changeLanguage(); return false;">🇪🇸 Español</button>
@@ -65,33 +65,33 @@
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <details class="text-md-left mb-sm-3 mb-lg-4 text-secondary">
-                                <summary id="educative-1" class="display-6 fs-4 mt-sm-6 mt-lg-3">The importance of choosing the right domain name</summary>
-                                <p class="lead mt-3 pe-5">Deciding and registering a domain name should not be done in haste. It is a valuable marketing and search tool that should successfully lead customers to your site. Careful deliberation and research should be applied, as it might be the most important decision you make when carving out your slice of the online market.</p>
+                                <summary id="educative-1-title" class="display-6 fs-4 mt-sm-6 mt-lg-3">The importance of choosing the right domain name</summary>
+                                <p id="educative-1-content" class="lead mt-3 pe-5">Deciding and registering a domain name should not be done in haste. It is a valuable marketing and search tool that should successfully lead customers to your site. Careful deliberation and research should be applied, as it might be the most important decision you make when carving out your slice of the online market.</p>
                                 </details>
                             </div>
                         
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4">
                                 <details class="text-md-left mb-sm-3 mb-lg-4 text-secondary">
-                                <summary class="display-6 fs-4 mt-sm-6 mt-lg-3">Keep it as short as possible</summary>
-                                <p class="lead mt-3 pe-5">Domain names should be kept as short as possible to improve pregnancy on users' minds.</p>
+                                <summary id="educative-2-title" class="display-6 fs-4 mt-sm-6 mt-lg-3">Keep it as short as possible</summary>
+                                <p id="educative-2-content" class="lead mt-3 pe-5">Domain names should be kept as short as possible to improve pregnancy on users' minds.</p>
                                 </details>
                             </div>
 
                         </div>
 
-                    <label for="keywords" class="fw-bold fs-6 mt-4">2. Please, describe your business with a comma-separated list of keywords. Don't forget to include one space after each comma. Example: <span class="text-secondary">a, comma-separated, list</span>. Also, remember that the only possible symbol accepted within any given domain name is the dash [<code class="bg-light">-</code>].</label>
-                    <small class="d-flex justify-content-end mt-3 mt-md-0 mb-3 text-danger3">Required field</small>
-                    <input class="w-100 rounded" type="text" id="keywords" name="search-keywords" placeholder="Please, describe your business with a comma-separated list of keywords." autocomplete="off" autocapitalize="off" required />
+                    <label id="legend-2" for="keywords" class="fw-bold fs-6 mt-4">2. Please, describe your business with a comma-separated list of keywords. Don't forget to include one space after each comma. Example: <span class="text-secondary">a, comma-separated, list</span>. Also, remember that the only possible symbol accepted within any given domain name is the dash [<code class="bg-light">-</code>].</label>
+                    <small id="small-1" class="d-flex justify-content-end mt-3 mt-md-0 mb-3 text-danger3">Required field</small>
+                    <input id="keywords" class="w-100 rounded" type="text" name="search-keywords" placeholder="Please, describe your business with a comma-separated list of keywords." autocomplete="off" autocapitalize="off" required />
 
-                    <label for="keywords" class="fw-bold fs-6 mt-5">3. Please, describe the category or categories which your business belongs to. Use a comma-separated list of category keywords to do so. Don't forget to include one space after each comma. Example: <span class="text-secondary">a, comma-separated, list</span>. Also, remember that the only possible symbol accepted within any given domain name is the dash [<code class="bg-light">-</code>].</label>
-                    <input class="w-100 rounded mt-4" type="text" id="categories" name="search-category" placeholder="How would you best describe the category of your business?" autocomplete="off" autocapitalize="off"/>
+                    <label id="legend-3" for="categories" class="fw-bold fs-6 mt-5">3. Please, describe the category or categories which your business belongs to. Use a comma-separated list of category keywords to do so. Don't forget to include one space after each comma. Example: <span class="text-secondary">a, comma-separated, list</span>. Also, remember that the only possible symbol accepted within any given domain name is the dash [<code class="bg-light">-</code>].</label>
+                    <input id="categories" class="w-100 rounded mt-4" type="text" name="search-category" placeholder="How would you best describe the category of your business?" autocomplete="off" autocapitalize="off"/>
 
-                    <label for="keywords" class="fw-bold fs-6 mt-5">4. Please, list the domain extensions you're interested in as a comma-separated list of keywords. <strong>DO NOT</strong> include the dot <code>[.]</code>. Leave it empty to use our default extensions. Don't forget to include one space after each comma. Example: <span class="text-secondary">a, comma-separated, list</span>.</label>
-                    <input class="w-100 rounded mt-4" type="text" id="userExtensions" name="search-extensions" placeholder="Do you already know which domain extensions you're interested in?" autocomplete="off" autocapitalize="off" />
+                    <label id="legend-4" for="userExtensions" class="fw-bold fs-6 mt-5">4. Please, list the domain extensions you're interested in as a comma-separated list of keywords. <strong>DO NOT</strong> include the dot <code>[.]</code>. Leave it empty to use our default extensions. Don't forget to include one space after each comma. Example: <span class="text-secondary">a, comma-separated, list</span>.</label>
+                    <input id="userExtensions" class="w-100 rounded mt-4" type="text" name="search-extensions" placeholder="Do you already know which domain extensions you're interested in?" autocomplete="off" autocapitalize="off" />
                 </fieldset>                
                 
                 <div class="d-flex justify-content-center">
-                    <input type="submit" class="btn btn-outline-primary mt-5" value="Submit" onclick="showDomains(); return false;">
+                    <input id="submit-button" type="submit" class="btn btn-outline-primary mt-5" value="Submit" onclick="showDomains(); return false;">
                 </div>
     
             </form>
@@ -100,7 +100,7 @@
             <div id="results"></div>
             <div id="appreciation"></div>
 
-            <footer class="text-center text-muted mt-3"><a href="https://portfolio.ibaifernandez.com" target="_blank"</a>Ibai Fernández</a> © All Rights Reserved · 2022</footer>
+            <footer id="footer" class="text-center text-muted mt-3"><a href="https://portfolio.ibaifernandez.com" target="_blank"</a>Ibai Fernández</a> © All Rights Reserved · 2022</footer>
     
         </div>
 
