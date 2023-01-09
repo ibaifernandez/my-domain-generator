@@ -333,7 +333,7 @@ function changeLanguage() {
 
   document.getElementById(
     "legend-4"
-  ).innerHTML = `4. POr favor, lista las extensiones de dominio en las cuales tienes interés. Hazlo en forma de lista separada por comas. NO INCLUYAS el punto [.]. Deja este campo vacío para utilizar las extensiones de dominio por defecto. No te olvides de incluir un espacio tras cada coma. Ejemplo: <span class="text-secondary">una, lista, separada, por, comas</span>.`;
+  ).innerHTML = `4. Por favor, lista las extensiones de dominio en las cuales tienes interés. Hazlo en forma de lista separada por comas. NO INCLUYAS el punto [.]. Deja este campo vacío para utilizar las extensiones de dominio por defecto. No te olvides de incluir un espacio tras cada coma. Ejemplo: <span class="text-secondary">una, lista, separada, por, comas</span>.`;
 
   document.getElementById("submit-button").value = `Enviar`;
 
